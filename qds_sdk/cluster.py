@@ -709,6 +709,7 @@ class ClusterInfo():
         self.hadoop_settings = {}
         self.security_settings = {}
         self.presto_settings = {}
+        self.package_settings = {}
 
     def set_ec2_settings(self,
                          aws_region=None,
@@ -1168,6 +1169,9 @@ class ClusterInfoV13():
         payload_dict.pop("api_version", None)
         return _make_minimal(payload_dict)
 
+    def set_spark_zeppellin_package_settings(self, spark_s3_package_name=None, zeppelin_s3_package_name=None):
+        self.package_settings['spark'] = spark_s3_package_name
+        self.package_settings['zeppelin'] = zeppelin_s3_package_name
 
 def _make_minimal(dictionary):
     """

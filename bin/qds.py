@@ -313,6 +313,8 @@ def _create_cluster_info(arguments, api_version):
         cluster_info.set_presto_settings(arguments.enable_presto,
                                          presto_custom_config)
 
+        cluster_info.set_spark_zeppelin_package_settings(arguments.spark_s3_package_name,
+                                         arguments.zeppelin_s3_package_name)
     return cluster_info
 
 def _read_file(file_path, file_name):
